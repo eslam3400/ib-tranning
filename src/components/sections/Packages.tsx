@@ -75,11 +75,7 @@ export const Packages: React.FC<PackagesProps> = ({ onOpenRegistration }) => {
                 <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className={`${getPackageIcon(pkg.id)} text-2xl text-white`}></i>
                 </div>
-                <h3 className="text-lg font-bold mb-2">{pkg.title}</h3>
-                <div className="text-2xl font-bold mb-2">
-                  ${pkg.priceUSD}<span className="text-sm opacity-80">/month</span>
-                </div>
-                <div className="text-sm opacity-90 mb-4">{pkg.priceEGP} EGP</div>
+                <h3 className="text-lg font-bold mb-4">{pkg.title}</h3>
                 <ul className="text-left space-y-1 mb-6 text-xs leading-relaxed">
                   {pkg.features.map((feature, index) => (
                     <li key={`${pkg.id}-feature-${index}`} className="flex items-start justify-end text-right">
@@ -154,14 +150,6 @@ export const Packages: React.FC<PackagesProps> = ({ onOpenRegistration }) => {
                   <td className="text-center py-3 px-4"><i className="fas fa-times text-red-500"></i></td>
                   <td className="text-center py-3 px-4"><i className="fas fa-times text-red-500"></i></td>
                   <td className="text-center py-3 px-4"><i className="fas fa-check text-green-500"></i></td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-medium">Price (USD/month)</td>
-                  <td className="text-center py-3 px-4 font-bold">$40</td>
-                  <td className="text-center py-3 px-4 font-bold">$35</td>
-                  <td className="text-center py-3 px-4 font-bold">$65</td>
-                  <td className="text-center py-3 px-4 font-bold">$130</td>
-                  <td className="text-center py-3 px-4 font-bold">$200</td>
                 </tr>
               </tbody>
             </table>

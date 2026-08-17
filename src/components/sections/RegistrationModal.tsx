@@ -46,8 +46,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ open, onCl
 
     try {
       // Create form data for email submission
-      const selectedPackageData = packagePlans.find(p => p.title === formData.selectedPackage);
-
       // Prepare email data
       const emailData = {
         to_email: 'eslam3400@gmail.com',
@@ -58,9 +56,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ open, onCl
         email: formData.email,
         selected_program: formData.selectedProgram,
         selected_package: formData.selectedPackage,
-        package_price_usd: selectedPackageData?.priceUSD || 'N/A',
-        package_price_egp: selectedPackageData?.priceEGP || 'N/A',
-        message: `New registration from ${formData.fullName}\n\nDetails:\n- Country: ${formData.country}\n- WhatsApp: ${formData.whatsappNumber}\n- Email: ${formData.email}\n- Program: ${formData.selectedProgram}\n- Package: ${formData.selectedPackage}\n- Package Price: $${selectedPackageData?.priceUSD} / ${selectedPackageData?.priceEGP} EGP\n\nTransfer image uploaded: ${formData.transferImage ? 'Yes' : 'No'}`,
+        message: `New registration from ${formData.fullName}\n\nDetails:\n- Country: ${formData.country}\n- WhatsApp: ${formData.whatsappNumber}\n- Email: ${formData.email}\n- Program: ${formData.selectedProgram}\n- Package: ${formData.selectedPackage}\n\nTransfer image uploaded: ${formData.transferImage ? 'Yes' : 'No'}`,
       };
 
       // Send email using EmailJS
@@ -251,7 +247,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ open, onCl
                 <option value="">اختر الباقة</option>
                 {packagePlans.map((pkg) => (
                   <option key={pkg.id} value={pkg.title}>
-                    {pkg.title} - ${pkg.priceUSD} / {pkg.priceEGP} EGP
+                    {pkg.title}
                   </option>
                 ))}
               </select>
